@@ -1,0 +1,13 @@
+{
+  "account": "unicase_jp",
+  "platform": "instagram",
+  "records": [
+    {"date": "2026-08-03", "followers": 1845, "following": 4, "posts": 240}
+  ],
+  "known_posts": ["DSj1cPMleJ7", "DSjzt6RjDw1", "DR53jpmkn_u"],
+  "feed": [
+    {"date": "2026-08-03", "code": "DSj1cPMleJ7", "kind": "post", "url": "https://www.instagram.com/unicase_jp/p/DSj1cPMleJ7/", "isNew": false},
+    {"date": "2026-08-03", "code": "DSjzt6RjDw1", "kind": "post", "url": "https://www.instagram.com/unicase_jp/p/DSjzt6RjDw1/", "isNew": false},
+    {"date": "2026-08-03", "code": "DR53jpmkn_u", "kind": "reel", "url": "https://www.instagram.com/unicase_jp/reel/DR53jpmkn_u/", "isNew": false}
+  ]
+}

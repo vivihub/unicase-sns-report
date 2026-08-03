@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNiCASE SNSデイリーレポート</title>
+<style>
+  :root { color-scheme: light dark; }
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --series-1:       #2a78d6;
+    --delta-good:     #006300;
+    --delta-bad:      #d03b3b;
+    --border:         rgba(11,11,11,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --series-1:       #3987e5;
+      --delta-good:     #0ca30c;
+      --delta-bad:      #e66767;
+      --border:         rgba(255,255,255,0.10);
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --series-1:       #3987e5;
+    --delta-good:     #0ca30c;
+    --delta-bad:      #e66767;
+    --border:         rgba(255,255,255,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body.viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    padding: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header { margin-bottom: 20px; }
+  header h1 { font-size: 20px; font-weight: 700; }
+  .sub { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+  .sub a { color: var(--series-1); text-decoration: none; }
+  .sub a:hover { text-decoration: underline; }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 14px; }
+  /* stat tiles */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .tile { padding: 4px 0; }
+  .tile .label { font-size: 12px; color: var(--text-muted); }
+  .tile .value { font-size: 30px; font-weight: 600; margin-top: 2px; }
+  .tile .value.hero { font-size: 48px; }
+  .tile .delta { font-size: 13px; margin-top: 2px; color: var(--text-muted); }
+  .tile .delta.up   { color: var(--delta-good); }
+  .tile .delta.down { color: var(--delta-bad); }
+  /* chart */
+  .chart-wrap { position: relative; }
+  svg text { font-family: inherit; }
+  .tooltip {
+    position: absolute; pointer-events: none; display: none;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px; font-size: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12); white-space: nowrap; z-index: 5;
+  }
+  .tooltip .t-date { color: var(--text-muted); }
+  .tooltip .t-val { font-weight: 600; margin-top: 2px; }
+  .note { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
+  /* posts feed */
+  .feed { list-style: none; }
+  .feed li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0; border-top: 1px solid var(--grid);
+    font-size: 14px;
+  }
+  .feed li:first-child { border-top: none; }
+  .feed a { color: var(--text-primary); text-decoration: none; }
+  .feed a:hover { text-decoration: underline; }
+  .badge {
+    font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+    background: var(--series-1); color: #fff;
+  }
+  .kind { font-size: 12px; color: var(--text-muted); }
+  .feed-date { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+  .empty { font-size: 13px; color: var(--text-muted); padding: 6px 0; }
+  /* table view (accessibility) */
+  details.table-view { margin-top: 12px; }
+  details.table-view summary { font-size: 12px; color: var(--text-muted); cursor: pointer; }
+  table { border-collapse: collapse; width: 100%; margin-top: 8px; font-size: 13px; }
+  th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--text-muted); font-weight: 500; }
+  footer { font-size: 12px; color: var(--text-muted); margin-top: 20px; }
+</style>
+</head>
+<body class="viz-root">
+<header>
+  <h1>UNiCASE SNSデイリーレポート</h1>
+  <div class="sub">Instagram <a href="https://www.instagram.com/unicase_jp/" target="_blank" rel="noopener">@unicase_jp</a> ・ 最終更新: <span id="last-updated">—</span> (毎朝9:00 JSTに自動更新)</div>
+</header>
+
+<section class="card">
+  <h2>最新スナップショット(前日比)</h2>
+  <div class="tiles" id="tiles"></div>
+</section>
+
+<section class="card">
+  <h2>フォロワー数の推移</h2>
+  <div class="chart-wrap" id="chart-wrap">
+    <svg id="chart" width="100%" height="280" role="img" aria-label="フォロワー数の推移(折れ線グラフ)"></svg>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+  <details class="table-view">
+    <summary>データを表で見る</summary>
+    <table id="data-table"></table>
+  </details>
+</section>
+
+<section class="card">
+  <h2>新規投稿フィード</h2>
+  <ul class="feed" id="feed"></ul>
+</section>
+
+<footer>データソース: instagram.com/unicase_jp (毎日9:00 JSTに取得) ・ 仕様: タレントSNSデイリーレポート準拠</footer>
+
+<script id="report-data" type="application/json">
+{
+  "account": "unicase_jp",
+  "records": [
+    {"date": "2026-08-03", "followers": 1845, "following": 4, "posts": 240}
+  ],
+  "feed": [
+    {"date": "2026-08-03", "code": "DSj1cPMleJ7", "kind": "post", "url": "https://www.instagram.com/unicase_jp/p/DSj1cPMleJ7/", "isNew": false},
+    {"date": "2026-08-03", "code": "DSjzt6RjDw1", "kind": "post", "url": "https://www.instagram.com/unicase_jp/p/DSjzt6RjDw1/", "isNew": false},
+    {"date": "2026-08-03", "code": "DR53jpmkn_u", "kind": "reel", "url": "https://www.instagram.com/unicase_jp/reel/DR53jpmkn_u/", "isNew": false}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  const data = JSON.parse(document.getElementById('report-data').textContent);
+  const records = data.records.slice().sort((a, b) => a.date < b.date ? -1 : 1);
+  const latest = records[records.length - 1];
+  const prev = records.length > 1 ? records[records.length - 2] : null;
+  const fmt = n => n.toLocaleString('ja-JP');
+  const fmtDate = d => { const [y, m, day] = d.split('-'); return `${y}/${Number(m)}/${Number(day)}`; };
+
+  document.getElementById('last-updated').textContent = fmtDate(latest.date);
+
+  // ---- stat tiles ----
+  function deltaHtml(cur, before, upIsGood) {
+    if (before == null) return '<div class="delta">前日データなし</div>';
+    const d = cur - before;
+    const cls = d > 0 ? 'up' : d < 0 ? 'down' : '';
+    const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '±';
+    return `<div class="delta ${upIsGood ? cls : ''}">${arrow} ${fmt(Math.abs(d))} <span style="color:var(--text-muted)">前日比</span></div>`;
+  }
+  const tiles = [
+    { label: 'フォロワー', value: latest.followers, hero: true, delta: deltaHtml(latest.followers, prev && prev.followers, true) },
+    { label: '投稿数', value: latest.posts, delta: deltaHtml(latest.posts, prev && prev.posts, true) },
+    { label: 'フォロー中', value: latest.following, delta: deltaHtml(latest.following, prev && prev.following, false) }
+  ];
+  document.getElementById('tiles').innerHTML = tiles.map(t =>
+    `<div class="tile"><div class="label">${t.label}</div><div class="value${t.hero ? ' hero' : ''}">${fmt(t.value)}</div>${t.delta}</div>`
+  ).join('');
+
+  // ---- line chart ----
+  const svg = document.getElementById('chart');
+  const wrap = document.getElementById('chart-wrap');
+  const tooltip = document.getElementById('tooltip');
+  const NS = 'http://www.w3.org/2000/svg';
+
+  function draw() {
+    svg.innerHTML = '';
+    const W = wrap.clientWidth, H = 280;
+    const m = { top: 16, right: 24, bottom: 28, left: 52 };
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+    const vals = records.map(r => r.followers);
+    let lo = Math.min(...vals), hi = Math.max(...vals);
+    if (lo === hi) { lo -= 10; hi += 10; }
+    const pad = (hi - lo) * 0.15;
+    lo = Math.floor((lo - pad)); hi = Math.ceil((hi + pad));
+
+    const x = i => records.length === 1
+      ? m.left + (W - m.left - m.right) / 2
+      : m.left + (W - m.left - m.right) * i / (records.length - 1);
+    const y = v => m.top + (H - m.top - m.bottom) * (1 - (v - lo) / (hi - lo));
+
+    // gridlines + y ticks (clean numbers)
+    const tickCount = 4;
+    for (let t = 0; t <= tickCount; t++) {
+      const v = Math.round(lo + (hi - lo) * t / tickCount);
+      const line = document.createElementNS(NS, 'line');
+      line.setAttribute('x1', m.left); line.setAttribute('x2', W - m.right);
+      line.setAttribute('y1', y(v)); line.setAttribute('y2', y(v));
+      line.setAttribute('stroke', 'var(--grid)'); line.setAttribute('stroke-width', '1');
+      svg.appendChild(line);
+      const tx = document.createElementNS(NS, 'text');
+      tx.setAttribute('x', m.left - 8); tx.setAttribute('y', y(v) + 4);
+      tx.setAttribute('text-anchor', 'end'); tx.setAttribute('font-size', '11');
+      tx.setAttribute('fill', 'var(--text-muted)');
+      tx.style.fontVariantNumeric = 'tabular-nums';
+      tx.textContent = fmt(v);
+      svg.appendChild(tx);
+    }
+
+    // x labels (thin out to <=8)
+    const step = Math.max(1, Math.ceil(records.length / 8));
+    records.forEach((r, i) => {
+      if (i % step !== 0 && i !== records.length - 1) return;
+      const tx = document.createElementNS(NS, 'text');
+      tx.setAttribute('x', x(i)); tx.setAttribute('y', H - 8);
+      tx.setAttribute('text-anchor', 'middle'); tx.setAttribute('font-size', '11');
+      tx.setAttribute('fill', 'var(--text-muted)');
+      tx.textContent = fmtDate(r.date).slice(5);
+      svg.appendChild(tx);
+    });
+
+    if (records.length > 1) {
+      // area wash 10%
+      const dPath = records.map((r, i) => `${i === 0 ? 'M' : 'L'}${x(i)},${y(r.followers)}`).join('');
+      const area = document.createElementNS(NS, 'path');
+      area.setAttribute('d', `${dPath}L${x(records.length - 1)},${y(lo)}L${x(0)},${y(lo)}Z`);
+      area.setAttribute('fill', 'var(--series-1)'); area.setAttribute('opacity', '0.1');
+      svg.appendChild(area);
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', dPath);
+      path.setAttribute('fill', 'none'); path.setAttribute('stroke', 'var(--series-1)');
+      path.setAttribute('stroke-width', '2'); path.setAttribute('stroke-linejoin', 'round');
+      path.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(path);
+    }
+
+    // markers: 8px dot with 2px surface ring
+    records.forEach((r, i) => {
+      const ring = document.createElementNS(NS, 'circle');
+      ring.setAttribute('cx', x(i)); ring.setAttribute('cy', y(r.followers));
+      ring.setAttribute('r', '6'); ring.setAttribute('fill', 'var(--surface-1)');
+      svg.appendChild(ring);
+      const dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', x(i)); dot.setAttribute('cy', y(r.followers));
+      dot.setAttribute('r', '4'); dot.setAttribute('fill', 'var(--series-1)');
+      svg.appendChild(dot);
+    });
+
+    // end label (selective direct label)
+    const endTx = document.createElementNS(NS, 'text');
+    const lastI = records.length - 1;
+    endTx.setAttribute('x', Math.min(x(lastI), W - m.right) );
+    endTx.setAttribute('y', y(latest.followers) - 12);
+    endTx.setAttribute('text-anchor', records.length === 1 ? 'middle' : 'end');
+    endTx.setAttribute('font-size', '12'); endTx.setAttribute('font-weight', '600');
+    endTx.setAttribute('fill', 'var(--text-primary)');
+    endTx.textContent = fmt(latest.followers);
+    svg.appendChild(endTx);
+
+    // hover layer: crosshair + tooltip
+    const hit = document.createElementNS(NS, 'rect');
+    hit.setAttribute('x', m.left); hit.setAttribute('y', m.top);
+    hit.setAttribute('width', Math.max(0, W - m.left - m.right));
+    hit.setAttribute('height', Math.max(0, H - m.top - m.bottom));
+    hit.setAttribute('fill', 'transparent');
+    svg.appendChild(hit);
+
+    const cross = document.createElementNS(NS, 'line');
+    cross.setAttribute('stroke', 'var(--baseline)'); cross.setAttribute('stroke-width', '1');
+    cross.setAttribute('y1', m.top); cross.setAttribute('y2', H - m.bottom);
+    cross.style.display = 'none';
+    svg.appendChild(cross);
+
+    hit.addEventListener('mousemove', e => {
+      const rect = svg.getBoundingClientRect();
+      const px = (e.clientX - rect.left) * (W / rect.width);
+      let best = 0, bd = Infinity;
+      records.forEach((r, i) => { const d = Math.abs(x(i) - px); if (d < bd) { bd = d; best = i; } });
+      const r = records[best];
+      cross.setAttribute('x1', x(best)); cross.setAttribute('x2', x(best));
+      cross.style.display = '';
+      const d = best > 0 ? r.followers - records[best - 1].followers : null;
+      tooltip.innerHTML = `<div class="t-date">${fmtDate(r.date)}</div><div class="t-val">フォロワー ${fmt(r.followers)}</div>` +
+        (d !== null ? `<div class="t-date">前日比 ${d >= 0 ? '+' : ''}${fmt(d)}</div>` : '');
+      tooltip.style.display = 'block';
+      const wr = wrap.getBoundingClientRect();
+      let tl = (x(best) / W) * wr.width + 12;
+      if (tl + tooltip.offsetWidth > wr.width - 8) tl = (x(best) / W) * wr.width - tooltip.offsetWidth - 12;
+      tooltip.style.left = tl + 'px';
+      tooltip.style.top = (y(r.followers) / H) * wr.height - 10 + 'px';
+    });
+    hit.addEventListener('mouseleave', () => { cross.style.display = 'none'; tooltip.style.display = 'none'; });
+  }
+  draw();
+  window.addEventListener('resize', draw);
+
+  // ---- table view ----
+  document.getElementById('data-table').innerHTML =
+    '<tr><th>日付</th><th>フォロワー</th><th>前日比</th><th>投稿数</th><th>フォロー中</th></tr>' +
+    records.map((r, i) => {
+      const d = i > 0 ? r.followers - records[i - 1].followers : null;
+      return `<tr><td>${fmtDate(r.date)}</td><td>${fmt(r.followers)}</td><td>${d === null ? '—' : (d >= 0 ? '+' : '') + fmt(d)}</td><td>${fmt(r.posts)}</td><td>${fmt(r.following)}</td></tr>`;
+    }).reverse().join('');
+
+  // ---- new posts feed ----
+  const feed = document.getElementById('feed');
+  const items = data.feed.slice().sort((a, b) => a.date < b.date ? 1 : -1);
+  if (!items.length) {
+    feed.innerHTML = '<li class="empty">投稿はまだ記録されていません。</li>';
+  } else {
+    feed.innerHTML = items.map(p =>
+      `<li>${p.isNew ? '<span class="badge">NEW</span>' : ''}<a href="${p.url}" target="_blank" rel="noopener">${p.code}</a><span class="kind">${p.kind === 'reel' ? 'リール' : '投稿'}</span><span class="feed-date">${fmtDate(p.date)} 確認</span></li>`
+    ).join('');
+  }
+})();
+</script>
+</body>
+</html>
