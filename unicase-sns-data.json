@@ -2,13 +2,126 @@
   "account": "unicase_jp",
   "platform": "instagram",
   "records": [
-    {"date": "2026-08-03", "followers": 1845, "following": 4, "posts": 240},
-    {"date": "2026-08-05", "followers": 1887, "following": 4, "posts": 240}
+    {
+      "date": "2026-08-03",
+      "followers": 1845,
+      "following": 4,
+      "posts": 240
+    },
+    {
+      "date": "2026-08-05",
+      "followers": 1887,
+      "following": 4,
+      "posts": 240
+    },
+    {
+      "date": "2026-08-13",
+      "followers": 2049,
+      "following": 4,
+      "posts": 246
+    }
   ],
-  "known_posts": ["DSj1cPMleJ7", "DSjzt6RjDw1", "DR53jpmkn_u"],
+  "known_posts": [
+    "DR53jpmkn_u",
+    "DS3v_qgkTEf",
+    "DScIz6uEawj",
+    "DScKepKD29G",
+    "DSj1cPMleJ7",
+    "DSjx_8hD7x0",
+    "DSjzt6RjDw1",
+    "DSuMCnUj4Mp",
+    "DThkhH4kRrZ",
+    "DUIXU6MiXMH",
+    "DUIXbLuCGpH",
+    "DUIXh3JjaIj",
+    "DUNkJpqkdZ-",
+    "DUksE02jK0Y",
+    "DUksKYzDWYb",
+    "DY1n0z6kz9W",
+    "DY6x6UtCPzB",
+    "DYowekzCWWF",
+    "DZ15U0mjcN7",
+    "DZMzi20DAPO",
+    "DZMzoRxgVLF",
+    "DZMzst-EYxW",
+    "DZe1Co6j0oc",
+    "DZhgtpEEXwG",
+    "DZkFk0WAS61",
+    "DZw6CVkiIOt",
+    "DZzbaxDiCwi",
+    "Db0EULVjA2_",
+    "Db2pEIjjQEU",
+    "Db5N4qOGWua",
+    "DbdG6ULga8O",
+    "Dbfkx8fILs3",
+    "DbiCvwbDzsU",
+    "Dbu6rQOAd2N",
+    "DbxfgyvjJRS",
+    "DbzbEfcgQDn"
+  ],
   "feed": [
-    {"date": "2026-08-03", "code": "DSj1cPMleJ7", "kind": "post", "url": "https://www.instagram.com/unicase_jp/p/DSj1cPMleJ7/", "isNew": false},
-    {"date": "2026-08-03", "code": "DSjzt6RjDw1", "kind": "post", "url": "https://www.instagram.com/unicase_jp/p/DSjzt6RjDw1/", "isNew": false},
-    {"date": "2026-08-03", "code": "DR53jpmkn_u", "kind": "reel", "url": "https://www.instagram.com/unicase_jp/reel/DR53jpmkn_u/", "isNew": false}
+    {
+      "date": "2026-08-03",
+      "code": "DSj1cPMleJ7",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DSj1cPMleJ7/",
+      "isNew": false
+    },
+    {
+      "date": "2026-08-03",
+      "code": "DSjzt6RjDw1",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DSjzt6RjDw1/",
+      "isNew": false
+    },
+    {
+      "date": "2026-08-03",
+      "code": "DR53jpmkn_u",
+      "kind": "reel",
+      "url": "https://www.instagram.com/unicase_jp/reel/DR53jpmkn_u/",
+      "isNew": false
+    },
+    {
+      "date": "2026-08-13",
+      "code": "Db5N4qOGWua",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/Db5N4qOGWua/",
+      "isNew": true
+    },
+    {
+      "date": "2026-08-13",
+      "code": "Db2pEIjjQEU",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/Db2pEIjjQEU/",
+      "isNew": true
+    },
+    {
+      "date": "2026-08-13",
+      "code": "Db0EULVjA2_",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/Db0EULVjA2_/",
+      "isNew": true
+    },
+    {
+      "date": "2026-08-13",
+      "code": "DbzbEfcgQDn",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DbzbEfcgQDn/",
+      "isNew": true
+    },
+    {
+      "date": "2026-08-13",
+      "code": "DbxfgyvjJRS",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DbxfgyvjJRS/",
+      "isNew": true
+    },
+    {
+      "date": "2026-08-13",
+      "code": "Dbu6rQOAd2N",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/Dbu6rQOAd2N/",
+      "isNew": true
+    }
   ]
 }
