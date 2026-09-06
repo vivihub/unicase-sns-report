@@ -97,6 +97,12 @@
       "followers": 3703,
       "following": 4,
       "posts": 253
+    },
+    {
+      "date": "2026-09-06",
+      "followers": 3834,
+      "following": 4,
+      "posts": 254
     }
   ],
   "known_posts": [
@@ -142,9 +148,17 @@
     "DcTErE0kVxn",
     "DcVpgGQDbCR",
     "DcYHcnSiEz6",
-    "Dc0d8UKmQeh"
+    "Dc0d8UKmQeh",
+    "Dc5lxHBDoU-"
   ],
   "feed": [
+    {
+      "date": "2026-09-06",
+      "code": "Dc5lxHBDoU-",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/Dc5lxHBDoU-/",
+      "isNew": true
+    },
     {
       "date": "2026-09-04",
       "code": "Dc0d8UKmQeh",
