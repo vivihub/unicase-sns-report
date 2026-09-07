@@ -7,3 +7,7 @@
 ## 2026-09-06
 
 - https://www.instagram.com/unicase_jp/p/Dc5lxHBDoU-/
+
+## 2026-09-07
+
+- https://www.instagram.com/unicase_jp/p/Dc8KjQNiQxZ/
