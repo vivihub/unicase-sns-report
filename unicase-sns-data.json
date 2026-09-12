@@ -133,6 +133,12 @@
       "followers": 4424,
       "following": 4,
       "posts": 259
+    },
+    {
+      "date": "2026-09-12",
+      "followers": 4522,
+      "following": 4,
+      "posts": 260
     }
   ],
   "known_posts": [
@@ -184,15 +190,23 @@
     "Dc-2NzHj3JH",
     "DdBa_naCB1z",
     "DdD_29biPbQ",
-    "DdGkm2CjVJG"
+    "DdGkm2CjVJG",
+    "DdJHpqxPyVF"
   ],
   "feed": [
+    {
+      "date": "2026-09-12",
+      "code": "DdJHpqxPyVF",
+      "kind": "reel",
+      "url": "https://www.instagram.com/unicase_jp/reel/DdJHpqxPyVF/",
+      "isNew": true
+    },
     {
       "date": "2026-09-11",
       "code": "DdGkm2CjVJG",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DdGkm2CjVJG/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-09-10",
