@@ -223,6 +223,12 @@
       "followers": 5614,
       "following": 4,
       "posts": 275
+    },
+    {
+      "date": "2026-09-27",
+      "followers": 5725,
+      "following": 4,
+      "posts": 276
     }
   ],
   "known_posts": [
@@ -292,15 +298,23 @@
     "Ddn8C9AibuW",
     "DdnS2I9Coww",
     "DdqnzFMCD7S",
-    "DdtMg1YnI3s"
+    "DdtMg1YnI3s",
+    "Ddvqbs2HC4n"
   ],
   "feed": [
+    {
+      "date": "2026-09-27",
+      "code": "Ddvqbs2HC4n",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/Ddvqbs2HC4n/",
+      "isNew": true
+    },
     {
       "date": "2026-09-26",
       "code": "DdtMg1YnI3s",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DdtMg1YnI3s/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-09-25",
@@ -566,13 +580,6 @@
       "code": "DbxfgyvjJRS",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DbxfgyvjJRS/",
-      "isNew": false
-    },
-    {
-      "date": "2026-08-21",
-      "code": "Dbu6rQOAd2N",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/Dbu6rQOAd2N/",
       "isNew": false
     }
   ]
