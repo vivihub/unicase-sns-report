@@ -108,3 +108,7 @@
 ## 2026-10-03
 
 - https://www.instagram.com/unicase_jp/p/Dd_OFFYFSU_/
+
+## 2026-10-04
+
+- https://www.instagram.com/unicase_jp/p/DeBsD0mDGoj/
