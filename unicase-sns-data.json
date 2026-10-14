@@ -301,6 +301,12 @@
       "followers": 6073,
       "following": 4,
       "posts": 286
+    },
+    {
+      "date": "2026-10-14",
+      "followers": 6139,
+      "following": 4,
+      "posts": 291
     }
   ],
   "known_posts": [
@@ -381,9 +387,49 @@
     "DeEQzCMjRz4",
     "DeG8haIDNFY",
     "DeJfpgagf-8",
-    "DeMGEkNCU5Q"
+    "DeMGEkNCU5Q",
+    "DebjIOlAanz",
+    "DeY3LbBDpfK",
+    "DeWZQFkDJqC",
+    "DeTtp2ODQci",
+    "DeRPo8jiASK"
   ],
   "feed": [
+    {
+      "date": "2026-10-14",
+      "code": "DebjIOlAanz",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DebjIOlAanz/",
+      "isNew": true
+    },
+    {
+      "date": "2026-10-14",
+      "code": "DeY3LbBDpfK",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DeY3LbBDpfK/",
+      "isNew": true
+    },
+    {
+      "date": "2026-10-14",
+      "code": "DeWZQFkDJqC",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DeWZQFkDJqC/",
+      "isNew": true
+    },
+    {
+      "date": "2026-10-14",
+      "code": "DeTtp2ODQci",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DeTtp2ODQci/",
+      "isNew": true
+    },
+    {
+      "date": "2026-10-14",
+      "code": "DeRPo8jiASK",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DeRPo8jiASK/",
+      "isNew": true
+    },
     {
       "date": "2026-10-08",
       "code": "DeMGEkNCU5Q",
@@ -627,41 +673,6 @@
       "code": "Dc5lxHBDoU-",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/Dc5lxHBDoU-/",
-      "isNew": false
-    },
-    {
-      "date": "2026-09-04",
-      "code": "Dc0d8UKmQeh",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/Dc0d8UKmQeh/",
-      "isNew": false
-    },
-    {
-      "date": "2026-08-24",
-      "code": "DcYHcnSiEz6",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/DcYHcnSiEz6/",
-      "isNew": false
-    },
-    {
-      "date": "2026-08-24",
-      "code": "DcVpgGQDbCR",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/DcVpgGQDbCR/",
-      "isNew": false
-    },
-    {
-      "date": "2026-08-24",
-      "code": "DcTErE0kVxn",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/DcTErE0kVxn/",
-      "isNew": false
-    },
-    {
-      "date": "2026-08-03",
-      "code": "DSj1cPMleJ7",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/DSj1cPMleJ7/",
       "isNew": false
     }
   ]
