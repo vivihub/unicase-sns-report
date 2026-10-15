@@ -307,6 +307,12 @@
       "followers": 6139,
       "following": 4,
       "posts": 291
+    },
+    {
+      "date": "2026-10-15",
+      "followers": 6160,
+      "following": 4,
+      "posts": 292
     }
   ],
   "known_posts": [
@@ -392,43 +398,51 @@
     "DeY3LbBDpfK",
     "DeWZQFkDJqC",
     "DeTtp2ODQci",
-    "DeRPo8jiASK"
+    "DeRPo8jiASK",
+    "DeeHqH-Gd8E"
   ],
   "feed": [
+    {
+      "date": "2026-10-15",
+      "code": "DeeHqH-Gd8E",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DeeHqH-Gd8E/",
+      "isNew": true
+    },
     {
       "date": "2026-10-14",
       "code": "DebjIOlAanz",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DebjIOlAanz/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-14",
       "code": "DeY3LbBDpfK",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DeY3LbBDpfK/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-14",
       "code": "DeWZQFkDJqC",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DeWZQFkDJqC/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-14",
       "code": "DeTtp2ODQci",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DeTtp2ODQci/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-14",
       "code": "DeRPo8jiASK",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DeRPo8jiASK/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-08",
@@ -666,13 +680,6 @@
       "code": "Dc8KjQNiQxZ",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/Dc8KjQNiQxZ/",
-      "isNew": false
-    },
-    {
-      "date": "2026-09-06",
-      "code": "Dc5lxHBDoU-",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/Dc5lxHBDoU-/",
       "isNew": false
     }
   ]
