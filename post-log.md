@@ -140,3 +140,7 @@
 ## 2026-10-15
 
 - https://www.instagram.com/unicase_jp/p/DeeHqH-Gd8E/
+
+## 2026-10-16
+
+- https://www.instagram.com/unicase_jp/p/DegsZ2mATgf/
