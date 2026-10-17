@@ -319,6 +319,12 @@
       "followers": 6172,
       "following": 4,
       "posts": 293
+    },
+    {
+      "date": "2026-10-17",
+      "followers": 6176,
+      "following": 3,
+      "posts": 294
     }
   ],
   "known_posts": [
@@ -406,15 +412,23 @@
     "DeTtp2ODQci",
     "DeRPo8jiASK",
     "DeeHqH-Gd8E",
-    "DegsZ2mATgf"
+    "DegsZ2mATgf",
+    "DejRMUOAc2V"
   ],
   "feed": [
+    {
+      "date": "2026-10-17",
+      "code": "DejRMUOAc2V",
+      "kind": "post",
+      "url": "https://www.instagram.com/unicase_jp/p/DejRMUOAc2V/",
+      "isNew": true
+    },
     {
       "date": "2026-10-16",
       "code": "DegsZ2mATgf",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DegsZ2mATgf/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-15",
@@ -680,13 +694,6 @@
       "code": "DdBa_naCB1z",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DdBa_naCB1z/",
-      "isNew": false
-    },
-    {
-      "date": "2026-09-08",
-      "code": "Dc-2NzHj3JH",
-      "kind": "post",
-      "url": "https://www.instagram.com/unicase_jp/p/Dc-2NzHj3JH/",
       "isNew": false
     }
   ]
