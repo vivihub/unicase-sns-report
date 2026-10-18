@@ -325,6 +325,12 @@
       "followers": 6176,
       "following": 3,
       "posts": 294
+    },
+    {
+      "date": "2026-10-18",
+      "followers": 6180,
+      "following": 3,
+      "posts": 294
     }
   ],
   "known_posts": [
@@ -421,7 +427,7 @@
       "code": "DejRMUOAc2V",
       "kind": "post",
       "url": "https://www.instagram.com/unicase_jp/p/DejRMUOAc2V/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-16",
