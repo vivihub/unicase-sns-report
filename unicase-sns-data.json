@@ -397,6 +397,12 @@
       "followers": 6190,
       "following": 4,
       "posts": 295
+    },
+    {
+      "date": "2026-10-30",
+      "followers": 6227,
+      "following": 4,
+      "posts": 295
     }
   ],
   "known_posts": [
@@ -494,7 +500,7 @@
       "code": "DfCM2I1PFKG",
       "kind": "reel",
       "url": "https://www.instagram.com/unicase_jp/reel/DfCM2I1PFKG/",
-      "isNew": true
+      "isNew": false
     },
     {
       "date": "2026-10-17",
