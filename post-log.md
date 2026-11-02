@@ -160,3 +160,7 @@
 ## 2026-11-01
 
 - https://www.instagram.com/unicase_jp/p/DfJ5K7kj-2B/
+
+## 2026-11-02
+
+- https://www.instagram.com/unicase_jp/p/DfMXDciCV6F/
