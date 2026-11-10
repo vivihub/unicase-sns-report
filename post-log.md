@@ -180,3 +180,7 @@
 ## 2026-11-07
 
 - https://www.instagram.com/unicase_jp/p/DfYl0pBjd1w/
+
+## 2026-11-10
+
+- https://www.instagram.com/unicase_jp/p/DfhESExjDjN/
